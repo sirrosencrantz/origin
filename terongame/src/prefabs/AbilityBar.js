@@ -161,9 +161,9 @@ class AbilityBar extends Phaser.GameObjects.Container {
 
 	/* START-USER-CODE */
 
-	last_GCD_time = new Date() - 15000;
-	last_spiritChains_time = new Date() - 15000;
-	last_spiritVolley_time = new Date() - 15000;
+	last_GCD_time = new Date() - 9000;
+	last_spiritChains_time = new Date() - 9000;
+	last_spiritVolley_time = new Date() - 9000;
 
 	coolingColor = 4473924;
 	readyColor = 16777215;
@@ -223,15 +223,15 @@ class AbilityBar extends Phaser.GameObjects.Container {
 		var spiritChainsElapsed = currentTime - this.last_spiritChains_time;
 		var spiritVolleyElapsed = currentTime - this.last_spiritVolley_time;
 
-		var spiritChainsOnCooldown = (!this.nocooldowns && spiritChainsElapsed < 15000);
-		var spiritVolleyOnCooldown = (!this.nocooldowns && spiritVolleyElapsed < 15000);
+		var spiritChainsOnCooldown = (!this.nocooldowns && spiritChainsElapsed < 9000);
+		var spiritVolleyOnCooldown = (!this.nocooldowns && spiritVolleyElapsed < 9000);
 
 		if(gcd || spiritChainsOnCooldown) {
 			this.tintSpell(this.spell_spiritChains, this.coolingColor);
 
 			if(spiritChainsOnCooldown) {
 				this.spiritChains_cooldown.visible = true;
-				var remainingSeconds = Math.ceil((15000 - spiritChainsElapsed) / 1000);
+				var remainingSeconds = Math.ceil((9000 - spiritChainsElapsed) / 1000);
 				this.spiritChains_cooldown.setText(remainingSeconds);
 			}
 		} else {
@@ -244,7 +244,7 @@ class AbilityBar extends Phaser.GameObjects.Container {
 
 			if(spiritVolleyOnCooldown) {
 				this.spiritVolley_cooldown.visible = true;
-				var remainingSeconds = Math.ceil((15000 - spiritVolleyElapsed) / 1000);
+				var remainingSeconds = Math.ceil((9000 - spiritVolleyElapsed) / 1000);
 				this.spiritVolley_cooldown.setText(remainingSeconds);
 			}
 		} else {
@@ -356,7 +356,7 @@ class AbilityBar extends Phaser.GameObjects.Container {
 
 	isGCD() {
 		var currentTime = new Date();
-		var gcd = (currentTime - this.last_GCD_time) < 1000;
+		var gcd = (currentTime - this.last_GCD_time) < 800;
 		return gcd;
 	}
 
