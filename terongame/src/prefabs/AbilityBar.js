@@ -163,7 +163,7 @@ class AbilityBar extends Phaser.GameObjects.Container {
 
 	last_GCD_time = new Date() - 9000;
 	last_spiritChains_time = new Date() - 9000;
-	last_spiritVolley_time = new Date() - 9000;
+	last_spiritVolley_time = new Date() - 50;
 
 	coolingColor = 4473924;
 	readyColor = 16777215;
